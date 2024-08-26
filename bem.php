@@ -1,10 +1,10 @@
 <?php
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require 'vendor/autoload.php';
-
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-
     // Defina o endereço de e-mail para onde os dados serão enviados
     $to = "the.emerson.araujo@gmail.com"; // Substitua com seu e-mail
     $subject = "Novo Registro de Usuário";
@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $success = false;
     $errorMessage = "O formulário não foi enviado corretamente.";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -121,3 +122,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 </html>
+
