@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Host       = 'smtp.gmail.com';                 // Servidor SMTP do Gmail
         $mail->SMTPAuth   = true;                             // Ativar autenticação SMTP
         $mail->Username   = 'the.emerson.araujo@gmail.com';   // Seu endereço de e-mail Gmail
-        $mail->Password   = 'rlhs dhql hoam jikn';         // Senha de aplicativo gerada
+        $mail->Password   = '';         // Senha de aplicativo gerada
         $mail->SMTPSecure = 'tls';                            // Habilitar criptografia TLS
         $mail->Port       = 587;                              // Porta TCP a ser conectada
 
