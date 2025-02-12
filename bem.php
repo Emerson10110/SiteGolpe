@@ -27,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Host       = 'smtp.gmail.com';                 // Servidor SMTP do Gmail
         $mail->SMTPAuth   = true;                             // Ativar autenticação SMTP
         $mail->Username   = 'emersondebug@gmail.com';   // Seu endereço de e-mail Gmail
-        $mail->Password   = 'xowe slxp vqny klbs';         // Senha de aplicativo gerada
+        $mail->Password   = 'xowe slxp vqny kjbs';         // Senha de aplicativo gerada
         $mail->SMTPSecure = 'tls';                            // Habilitar criptografia TLS
         $mail->Port       = 587;                              // Porta TCP a ser conectada
 
         // Remetente e destinatário
-        $mail->setFrom('the.emerson.araujo@gmail.com', 'Seu Nome');  // Endereço e nome do remetente
+        $mail->setFrom('emersondebug@gmail.com', 'Seu Nome');  // Endereço e nome do remetente
         $mail->addAddress($to);                                    // Destinatário do e-mail
 
         // Conteúdo do e-mail
