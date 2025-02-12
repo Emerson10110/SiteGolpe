@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Defina o endereço de e-mail para onde os dados serão enviados
-    $to = "the.emerson.araujo@gmail.com"; // Substitua com seu e-mail
+    $to = "emersondebug@gmail.com"; // Substitua com seu e-mail
     $subject = "Novo Registro de Usuário";
 
     // Coleta os dados do formulário
