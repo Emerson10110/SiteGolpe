@@ -30,12 +30,12 @@ Antes de executar este projeto, certifique-se de ter:
 
 1. **Clone o repositório** para o seu ambiente local:
     ```bash
-    git clone https://github.com/Emerson10110/maisSeguidoresNoInstagram.git
+    git clone https://github.com/Emersonpinho/capturaDeInformacoes.git
     ```
 
 2. **Navegue até o diretório do projeto**:
     ```bash
-    cd maisSeguidoresNoInstagram
+    cd capturaDeInformacoes
     ```
 
 3. **Instale as dependências do PHPMailer** via Composer:
